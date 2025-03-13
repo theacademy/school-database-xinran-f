@@ -37,8 +37,8 @@ public class SchoolDaoImpl implements SchoolDao {
         // YOUR CODE STARTS HERE
 
         String sql = "SELECT " +
-                "fName AS \"First Name\", " +
-                "lName AS \"Last Name\" " +
+                "fName AS firstName, " +
+                "lName AS lastName " +
                 "FROM student " +
                 "ORDER BY lName;";
 
@@ -55,8 +55,8 @@ public class SchoolDaoImpl implements SchoolDao {
         // YOUR CODE STARTS HERE
 
          String sql = "SELECT " +
-                 "c.courseCode AS \"Course Code\", " +
-                 "c.courseDesc AS \"Course Name\" " +
+                 "c.courseCode AS courseCode, " +
+                 "c.courseDesc AS courseName " +
                  "FROM teacher t " +
                  "JOIN course c ON t.tid = c.teacherId " +
                  "WHERE t.dept LIKE 'Computer Science';";
@@ -71,7 +71,11 @@ public class SchoolDaoImpl implements SchoolDao {
         //  Name the aggregate field `teacherCount`.
         // YOUR CODE STARTS HERE
 
-        String sql = "";
+        String sql = "SELECT " +
+                "dept, " +
+                "COUNT(tid) AS teacherCount " +
+                "FROM teacher " +
+                "GROUP BY dept;";
 
         // YOUR CODE ENDS HERE
         return jdbcTemplate.query(sql, new TeacherCountMapper());
