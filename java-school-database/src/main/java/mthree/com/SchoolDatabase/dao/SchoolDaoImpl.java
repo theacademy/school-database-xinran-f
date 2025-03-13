@@ -36,9 +36,14 @@ public class SchoolDaoImpl implements SchoolDao {
         // sorted by last name.
         // YOUR CODE STARTS HERE
 
-        String sql = "";
+        String sql = "SELECT \n" +
+                "\tfName AS FirstName,\n" +
+                "    lName AS LastName\n" +
+                "FROM student\n" +
+                "ORDER BY lName;";
 
         // YOUR CODE ENDS HERE
+
 
         return jdbcTemplate.query(sql, new StudentMapper());
     }
