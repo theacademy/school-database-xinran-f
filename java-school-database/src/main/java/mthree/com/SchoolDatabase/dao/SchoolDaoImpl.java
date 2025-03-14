@@ -151,7 +151,7 @@ public class SchoolDaoImpl implements SchoolDao {
 
         String sql = "DELETE FROM teacher " +
                 "WHERE CONCAT(tFName, ' ', tLName) = 'David Mitchell';";
-
+         
         // YOUR CODE ENDS HERE
         jdbcTemplate.update(sql);
     }
